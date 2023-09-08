@@ -16,7 +16,7 @@ jobs:
       # ${{ }} used for special variables about context of the run: 
       #   - check https://docs.github.com/en/actions/learn-github-actions/contexts)
       - name: this is my step name hello
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+        run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       
       # If we want our run to be in multiple lines, follow the syntax below
       - name: List files in the repository
