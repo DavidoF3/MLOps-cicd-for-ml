@@ -11,3 +11,12 @@ In `machine Learning` [CI/CD](https://wandb.ai/hamelsmu/model-registry/reports/W
 * `Review process` cause ML is messy. This will interact with `A/B testing`, online/offline data tests, `canary model deployment`. 
 
 Github Actions (GitOps) and W&B can be used together to automate your workflow for the `changing code` and `observability` steps mentioned above.
+
+
+# GitHub Actions
+
+[[Github Actions](https://docs.github.com/en/actions)] need to be located in a folder named `.github/workflows`. See example Action file with comments `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
+
+Best way to start is with a `template`. We can Google `github actions example workflows` or use [GitHub docs](https://docs.github.com/en/actions/quickstart) (containing an example).
+* Check [events that trigger workflows](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows) when they are called (eg. push).
+* The characters `${{ }}` are used for [special variables](https://docs.github.com/en/actions/learn-github-actions/contexts) about the context of the run.
