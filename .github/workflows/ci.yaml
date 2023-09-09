@@ -1,0 +1,25 @@
+# Name of the action (will show in the UI when you see a list of all your runs)
+name: GitHub Actions Demo
+
+# What action to trigger (we want this action to run whenever there's an event called push)
+on: [push]
+
+# Job that get triggered when "push" event happens (if multiple jobs specified, they run in parallel
+jobs:
+  # Name of the job 
+  my-first-job:
+    # Operating system (in this case latest verion of ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+    
+      # We can give a name to each step
+      # ${{ }} used for special variables about context of the run: 
+      #   - check https://docs.github.com/en/actions/learn-github-actions/contexts)
+      - name: this is my step name hello
+        run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      
+      # If we want our run to be in multiple lines, follow the syntax below
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+        
