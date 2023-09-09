@@ -11,15 +11,20 @@ jobs:
     # Operating system (in this case latest verion of ubuntu)
     runs-on: ubuntu-latest
     steps:
+
+      # Third party action (workflow) from Github to clone contents of the current repo
+      #   - structure: organisation/repo_name@version
+      - uses: actions/checkout@v3
     
       # We can give a name to each step
       # ${{ }} used for special variables about context of the run: 
       #   - check https://docs.github.com/en/actions/learn-github-actions/contexts)
-      - name: this is my step name hello
-        run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - name: hello
+        run: echo "hello world"
       
       # If we want our run to be in multiple lines, follow the syntax below
-      - name: List files in the repository
+      - name: run python script
         run: |
-          ls ${{ github.workspace }}
+          pip install -r requirements.txt
+          python ci.py
         
