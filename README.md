@@ -15,8 +15,15 @@ Github Actions (GitOps) and W&B can be used together to automate your workflow f
 
 # GitHub Actions
 
-[[Github Actions](https://docs.github.com/en/actions)] need to be located in a folder named `.github/workflows`. See example Action file with comments `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
+[[Github Actions](https://docs.github.com/en/actions)] need to be located in a folder named `.github/workflows`. See example [Action file](.github/workflows/ci.yaml) with comments.
 
-Best way to start is with a `template`. We can Google `github actions example workflows` or use [GitHub docs](https://docs.github.com/en/actions/quickstart) (containing an example).
-* Check [events that trigger workflows](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows) when they are called (eg. push).
+Best way to start is with a `template`. We can Google `github actions example workflows` or use the [Github docs example](https://docs.github.com/en/actions/quickstart). Some details about the action file are:
+* If we create new files locally and want to run them through a Github actions workflow, we won't have access to it directly. `Third party actions` allow you to use pre-defined worfklows, to do things like cloning contents of the current repo (see [Github checkout action](https://github.com/actions/checkout)), which is on of the most commonly use cases. In the [workflow file](.github/workflows/ci.yaml), third party actions are called with the `uses` command.
+* Github Actions are triggerd by specific commands. Check [events that trigger workflows](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows), to know which commands  can trigger Github Actions (eg. git push).
 * The characters `${{ }}` are used for [special variables](https://docs.github.com/en/actions/learn-github-actions/contexts) about the context of the run.
+
+## Action Secrets
+
+Allow to use sensitive information (eg. passwords or tokens) inside Github action workflows without having to store it in the open where everyone can see them. We can define new `Secrets` in: `repo > Settings > Secrets and Variables > Actions > New Repository Secret`.
+
+To access the secret, we need to reference it in your workflow
